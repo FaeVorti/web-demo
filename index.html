@@ -1,10 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>My First Website</title> 
+    <meta charset="UTF-8">
+    <title>Fate/Stardew: The Banquet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --stardew-brown: #744931;
+            --stardew-tan: #f4d29c;
+            --iskandar-red: #8B0000;
+            --waver-green: #2F4F4F;
+            --saber-blue: #0047AB;
+            --gil-gold: #FFD700;
+        }
+
+        body {
+            background-color: #222;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            image-rendering: pixelated;
+        }
+
+        /* The Main Game Container */
+        .game-screen {
+            background: #4a7a3c; /* Grass color */
+            border: 8px solid var(--stardew-brown);
+            box-shadow: 0 0 0 4px #000, inset 0 0 20px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-size: 18px;
+            text-align: center;
+            text-shadow: 2px 2px #000;
+            margin-bottom: 30px;
+            color: var(--stardew-tan);
+        }
+
+        /* Character Grid */
+        .character-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .sprite-card {
+            background: var(--stardew-tan);
+            border: 4px solid var(--stardew-brown);
+            padding: 15px;
+            color: #333;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .sprite-card.hero { border-color: var(--iskandar-red); }
+        .sprite-card.king { border-color: var(--gil-gold); }
+
+        .pixel-art {
+            width: 64px;
+            height: 64px;
+            background: #ccc;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000;
+        }
+
+        /* Dialogue Box */
+        .dialogue-box {
+            background: white;
+            border: 6px solid var(--stardew-brown);
+            padding: 20px;
+            color: #444;
+            font-size: 12px;
+            line-height: 1.6;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .name-tag {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            background: var(--stardew-brown);
+            color: white;
+            padding: 5px 10px;
+            font-size: 10px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+            float: right;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        button {
+            background: var(--stardew-tan);
+            border: 4px solid var(--stardew-brown);
+            font-family: 'Press Start 2P';
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 10px;
+        }
+
+        button:hover {
+            background: white;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, Web!</h1>
-  <p>This site is live.</p>
+
+    <div class="game-screen">
+        <h1>[ STRATEGIC BANQUET IN PROGRESS ]</h1>
+
+        <div class="character-container">
+            <div class="sprite-card hero">
+                <div class="pixel-art" style="background: var(--iskandar-red); color: white;">Rider</div>
+                <p>ISKANDAR & WAVER</p>
+                <small style="font-size: 8px;">Trust Level: MAX</small>
+            </div>
+
+            <div class="sprite-card king">
+                <div class="pixel-art" style="background: var(--gil-gold);">Au</div>
+                <p>GILGAMESH</p>
+                <small style="font-size: 8px;">Mood: Amused</small>
+            </div>
+
+            <div class="sprite-card king">
+                <div class="pixel-art" style="background: var(--saber-blue); color: white;">S</div>
+                <p>ARTURIA</p>
+                <small style="font-size: 8px;">Mood: Serious</small>
+            </div>
+
+            <div class="sprite-card">
+                <div class="pixel-art">?</div>
+                <p>GRAIL</p>
+                <small style="font-size: 8px;">Status: Empty</small>
+            </div>
+        </div>
+
+        <div class="dialogue-box">
+            <div class="name-tag">ISKANDAR</div>
+            "To win, but not destroy; to conquer, but not humiliate. That is true conquest!" 
+            <br><br>
+            <span style="color: var(--waver-green);">(Waver is frantically writing notes)</span>
+            <span class="blink">▼</span>
+        </div>
+
+        <button onclick="alert('Ionian Hetairoi Activated!')">ACTIVATE NOBLE PHANTASM</button>
+    </div>
+
 </body>
 </html>
